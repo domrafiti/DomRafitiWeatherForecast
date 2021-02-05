@@ -14,7 +14,128 @@
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
+    <h1 class="center">Your Five-Day Weather Forecast</h1>
+    <!--ONE ROW - four columns - rows within columns-->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <!--FIRST COLUMN - MULTIPLE ROWS WITHIN-->
+        <div class="col-sm-2">
+            <!--ROW FOR SEARCH Header-->
+            <div class="row">
+                <p class="col-sm-12">Search for a City: </p>
+            </div>
+            <!--ROW FOR SEARCH FIELD AND BUTTON-->
+            <div class="row">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter City Name Here:"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                            onclick="getAPI('Loveland')">Button</button>
+                    </div>
+                </div>
+            </div>
+            <!--ROW FOR FORM OF QUICK SEARCH CITIES-->
+            <div class="row">
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                        The current button
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action">A second item</button>
+                    <button type="button" class="list-group-item list-group-item-action">A third button item</button>
+                    <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
+                    <button type="button" class="list-group-item list-group-item-action">A disabled button item</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <!--SECOND COLUMN-->
+        <div class="col-sm-8">
+            <!--ROW FOR SEARCH RESULTS-->
+            <div class="row">
+                <div class="card col-sm-12" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 id="searched-city" class="card-title">Card title</h5>
+                        <h6 id="temperature" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <h6 id="humidity" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--ROW FOR '5 day forecast' HEADER-->
+            <div class="row">
+                <h4 class="col-sm-12">Five day weather forecast</h4>
+            </div>
+            <!--ROW FOR 5 cards to hold weather forecast-->
+            <div class="row">
+                <!--First city-->
+                <div class="card col-sm-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 id="" class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                <!--Second City-->
+                <div class="card col-sm-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                <!--Third City-->
+                <div class="card col-sm-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                <!--Fourth City-->
+                <div class="card col-sm-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                <!--Fifth City-->
+                <div class="card col-sm-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
 
 
 
@@ -26,7 +147,9 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 
-    < -->
+    <script src="./Assets/script.js"></script>
+
+
 </body>
 
 </html>
