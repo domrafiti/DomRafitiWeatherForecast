@@ -27,24 +27,27 @@
             <!--ROW FOR SEARCH FIELD AND BUTTON-->
             <div class="row">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter City Name Here:"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"
-                            onclick="getAPI('Loveland')">Button</button>
+                    <input id="search-input" type="text" class="form-control" placeholder="Enter City Name Here:">
+                    <div id="search-button" class="button-click input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
                     </div>
                 </div>
             </div>
             <!--ROW FOR FORM OF QUICK SEARCH CITIES-->
             <div class="row">
                 <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                        The current button
+                    <button id="recent-one" type="button" class="list-group-item list-group-item-action active"
+                        onclick="fixedSearch('Fort Collins')">Fort Collins
                     </button>
-                    <button type="button" class="list-group-item list-group-item-action">A second item</button>
-                    <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-                    <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-                    <button type="button" class="list-group-item list-group-item-action">A disabled button item</button>
+                    <button id="recent-two" type="button" class="list-group-item list-group-item-action"
+                        onclick="fixedSearch('Denver')">Denver</button>
+                    <button id="recent-three" type="button" class="list-group-item list-group-item-action"
+                        onclick="fixedSearch('San Francisco')">San
+                        Francisco</button>
+                    <button id="recent-four" type="button" class="list-group-item list-group-item-action"
+                        onclick="fixedSearch('Atlanta')">Atlanta</button>
+                    <button id="recent-five" type="button" class="list-group-item list-group-item-action"
+                        onclick="fixedSearch('Miami')">Miami</button>
                 </div>
             </div>
         </div>
@@ -58,6 +61,7 @@
                 <div class="card col-sm-12" style="width: 18rem;">
                     <div class="card-body">
                         <h5 id="searched-city" class="card-title"></h5>
+                        <img id="searched-image" src="" alt="">
                         <h6 id="temperature" class="card-subtitle mb-2 text-muted">Temperature:</h6>
                         <h6 id="humidity" class="card-subtitle mb-2 text-muted">Humidity:</h6>
                         <h6 id="wind-speed" class="card-subtitle mb-2 text-muted">Wind Speed:</h6>
@@ -75,50 +79,49 @@
                 <!--First day-->
                 <div class="card col-sm-2" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 id="" class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h5 id="day-one" class="card-title"></h5>
+                        <img id=one-image src="" alt="">
 
+                        <h6 id="one-temp" class="card-subtitle mb-2 text-muted">Temp: </h6>
+                        <h6 id="one-humidity" class="card-subtitle mb-2 text-muted">Humidity: </h6>
                     </div>
                 </div>
                 <!--Second day-->
                 <div class="card col-sm-2" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-
+                        <h5 id="day-two" class="card-title"></h5>
+                        <img id="two-image" src="" alt="">
+                        <h6 id="two-temp" class="card-subtitle mb-2 text-muted">Temp: </h6>
+                        <h6 id="two-humidity" class="card-subtitle mb-2 text-muted">Humidity: </h6>
                     </div>
                 </div>
                 <!--Third day-->
                 <div class="card col-sm-2" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h5 id="day-three" class="card-title"></h5>
+                        <img id="three-image" src="" alt="">
+                        <h6 id="three-temp" class="card-subtitle mb-2 text-muted">Temp: </h6>
+                        <h6 id="three-humidity" class="card-subtitle mb-2 text-muted">Humidity: </h6>
 
                     </div>
                 </div>
                 <!--Fourth day-->
                 <div class="card col-sm-2" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h5 id="day-four" class="card-title"></h5>
+                        <img id="four-image" src="" alt="">
+                        <h6 id="four-temp" class="card-subtitle mb-2 text-muted">Temp: </h6>
+                        <h6 id="four-humidity" class="card-subtitle mb-2 text-muted">Humidity: </h6>
 
                     </div>
                 </div>
                 <!--Fifth day-->
                 <div class="card col-sm-2" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h5 id="day-five" class="card-title"></h5>
+                        <img id="five-image" src="" alt="">
+                        <h6 id="five-temp" class="card-subtitle mb-2 text-muted">Temp: </h6>
+                        <h6 id="five-humidity" class="card-subtitle mb-2 text-muted">Humidity: </h6>
 
                     </div>
                 </div>
