@@ -39,7 +39,19 @@ THEN I am again presented with current and future conditions for that city
  * * * Second card:
  * * * * * condensed view (Date, icon, temp, humidity)
  */
-function setSearchedCity(city, temperature, date, humidity, windspeed,) {
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+};
+
+
+function setSearchedCity(city, temperature, date, humidity, windSpeed, uvIndex) {
+    console.log(city, temperature, date, humidity, windSpeed, uvIndex);
+
+    document.getElementById("searched-city").textContent = city;
+    document.getElementById("temperature").textContent = `Temperature: ${temperature}*F`;
+    document.getElementById("humidity").textContent = `Humidity: ${humidity}%`;
+    document.getElementById("wind-speed").textContent = `Wind Speed: ${windSpeed} MPH`;
 
 }
 
@@ -48,11 +60,6 @@ function getAPI(city) {
     var requestURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=acaa48cd5a14b6aa31f93113ccf288cc&units=imperial`;
 
     console.log(city);
-
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
 
     fetch(requestURL, requestOptions)
         //.then(response => response.text())
@@ -79,6 +86,9 @@ function getAPI(city) {
             //Wind Speed
             var windSpeed = results[0].wind.speed;
             console.log(windSpeed);
+            //Image for Display
+            var imageURL = results[0].weather[0].icon;
+            console.log(imageURL);
             //Lat
             var lat = resultsFull.city.coord.lat;
             console.log(lat);
@@ -86,10 +96,6 @@ function getAPI(city) {
             var lon = resultsFull.city.coord.lon;
             console.log(lon);
 
-            var requestOptions = {
-                method: 'GET',
-                redirect: 'follow'
-            };
 
             fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,daily,minutely,alerts&appid=6b8690633d63e8bf4fb81fc2fa7b972d`, requestOptions)
                 .then(function (response) {
@@ -98,16 +104,14 @@ function getAPI(city) {
                 .then(function (data) {
                     var uvIndex = data.current.uvi;
                     console.log(uvIndex);
+                    setSearchedCity(city, temperature, date, humidity, windSpeed, uvIndex)
+                    document.getElementById("uv-index").textContent = `UV Index: ${uvIndex}`;
                     return uvIndex;
                 })
                 .catch(error => console.log('error', error));
 
-            document.getElementById("searched-city").textContent = city;
-            document.getElementById("temperature").textContent = `Temperature: ${temperature}*F`;
-            document.getElementById("humidity").textContent = `Humidity: ${humidity}%`;
-
-
-
+            var fiveDayResults = data.list;
+            console.log(fiveDayResults);
             //for (let i = 0; i < array.length; i++) {
             // const element = array[i];
 
@@ -123,4 +127,3 @@ function getAPI(city) {
 
 
 
-/** */
